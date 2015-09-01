@@ -13,8 +13,8 @@ IP="172.16.90.20"
 # ========================== Start run python ======================
 print("Start run.................")
 
-DEVICE_OPT=input("Control "+IP+"'s device (by keyin Y/y) \nor input IP address\n") 
-if DEVICE_OPT == "Y" or DEVICE_OPT == "y":
+DEVICE_OPT=input("Control "+IP+"'s device (Y/y)(or Enter key) \nor input IP address\n") 
+if DEVICE_OPT == "Y" or DEVICE_OPT == "y" or DEVICE_OPT == "":
     IP="172.16.90.20"
 else:
     IP=DEVICE_OPT
@@ -23,7 +23,7 @@ SNMPSET="snmpset -c private -v2c "+IP+" "
 #print(SNMPSET)
 
 while REPEAT == "Y" or REPEAT == "y" or REPEAT == "":
-    OID = input("請輸入OID:\n")
+    OID = input("\n請輸入OID:\n")
     #print(OID)
 
     print("此OID是table or leaf:")
@@ -70,7 +70,7 @@ while REPEAT == "Y" or REPEAT == "y" or REPEAT == "":
     file.write(FINAL_STRING)
     file.close()
 
-    REPEAT=input("要繼續輸入嗎(Y/y)，不要請按(N/n)?")
+    REPEAT=input("要繼續輸入嗎(Y/y)(or Enter key)，不要請按(N/n)?")
 
 os.system("chmod +x "+SNMPSET_FILE)
 print("Please check "+SNMPSET_FILE+".")
