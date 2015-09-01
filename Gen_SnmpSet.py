@@ -6,7 +6,7 @@
 import os
 
 # ========================== Global parameter ======================
-SNMPSET_FILE="snmp_set.sh"
+SNMPSET_FILE="quick.sh"
 REPEAT="Y"
 IP="172.16.90.20"
 
@@ -63,7 +63,7 @@ while REPEAT == "Y" or REPEAT == "y" or REPEAT == "":
     elif TYPE_OPTION == "2":
         FINAL_STRING=SNMPSET+OID+"."+str(OID_INDEX)+" u "+str(VALUE)+"\n"
     elif TYPE_OPTION == "3":
-        FINAL_STRING=SNMPSET+OID+"."+str(OID_INDEX)+" s "+VALUE+"\n"
+        FINAL_STRING=SNMPSET+OID+"."+str(OID_INDEX)+" s "+"\""+VALUE+"\"\n"
 
     #name = input('請輸入檔名：')
     file = open(SNMPSET_FILE, 'a+', encoding = 'UTF-8')
