@@ -53,6 +53,7 @@ while REPEAT == "Y" or REPEAT == "y" or REPEAT == "":
     print("1. INTEGER")
     print("2. UNSIGNED")
     print("3. STRING")
+    print("4. HEX STRING")
     TYPE_OPTION = input("請選擇\n")
 #print(TYPE_OPTION)
 
@@ -64,6 +65,9 @@ while REPEAT == "Y" or REPEAT == "y" or REPEAT == "":
         FINAL_STRING=SNMPSET+OID+"."+str(OID_INDEX)+" u "+str(VALUE)+"\n"
     elif TYPE_OPTION == "3":
         FINAL_STRING=SNMPSET+OID+"."+str(OID_INDEX)+" s "+"\""+VALUE+"\"\n"
+    elif TYPE_OPTION == "4":
+        #format is "d5 a4 cc 08"
+        FINAL_STRING=SNMPSET+OID+"."+str(OID_INDEX)+" x "+"\""+VALUE+"\"\n"
 
     #name = input('請輸入檔名：')
     file = open(SNMPSET_FILE, 'a+', encoding = 'UTF-8')
